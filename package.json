@@ -1,0 +1,33 @@
+{
+  "name": "codepipeline-lambda-aliaser",
+  "version": "0.1.0",
+  "description": "CodePipeline custom action to alias Lambda function versions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/qblu/codepipeline-lambda-aliaser.git"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "codepipeline"
+  ],
+  "author": {
+    "name": "Joe Lafiosca",
+    "email": "joe@quasarblu.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "codepipeline-custom-action": "^0.1.2"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.7.20",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-install": "^0.6.0",
+    "gulp-zip": "^3.2.0"
+  }
+}
