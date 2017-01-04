@@ -40,7 +40,7 @@ const inputHandler = (job, input) => {
 				verboseLog(`Updated alias ${data.AliasArn}`);
 			})
 			.catch(error => {
-				if (error.errorType !== 'ResourceNotFoundException') {
+				if (error.code !== 'ResourceNotFoundException') {
 					verboseError(`Failed to update ${params.Name} alias for ${params.FunctionName}: ${error}`);
 					throw error;
 				}
