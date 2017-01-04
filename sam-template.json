@@ -20,7 +20,10 @@
             "Statement": [
               {
                 "Effect": "Allow",
-                "Action": ["lambda:UpdateAlias"],
+                "Action": [
+                  "lambda:UpdateAlias",
+                  "lambda:CreateAlias"
+                ],
                 "Resource": "*"
               }
             ]
