@@ -40,8 +40,22 @@ const inputHandler = (job, input) => {
 				verboseLog(`Updated alias ${data.AliasArn}`);
 			})
 			.catch(error => {
-				verboseError(`Failed to update ${params.Name} alias for ${params.FunctionName}: ${error}`);
-				throw error;
+				if (error.type !== 'ResourceNotFoundException') {
+					verboseError(`Failed to update ${params.Name} alias for ${params.FunctionName}: ${error}`);
+					throw error;
+				}
+
+				verboseLog(`The ${params.Name} alias for ${params.FunctionName} does not exist; creating`);
+
+				return lambda.createAlias(params)
+					.promise()
+					.then(data => {
+						verboseLog(`Created alias ${data.AliasArn}`);
+					})
+					.catch(error => {
+						verboseError(`Failed to create ${params.Name} alias for ${params.FunctionName}: ${error}`);
+						throw error;
+					});
 			});
 	});
 
